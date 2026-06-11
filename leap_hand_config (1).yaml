@@ -1,0 +1,36 @@
+task: leap_hand
+use_domain_randomization: false
+num_envs: 64
+action_scale: 0.6
+action_ema_alpha: 0.6
+grasp_cache_path: null   # desactive — on part de la main ouverte
+
+# wrench disturbance (desactive pour l'instant)
+wrench_force_scale: 0.0
+wrench_torque_scale: 0.0
+wrench_ramp_alpha: 0.8
+wrench_push_steps: [20, 80]
+wrench_rest_steps: [10, 50]
+
+# reward scales existants
+reward_scale: 0.01
+alive_bonus: 2.0
+wrench_resistance_scale: 1.0
+slip_vel_scale: 0.1
+torque_scale: 0.0001
+action_rate_scale: 0.01
+
+# reward guidage
+# proximity : approcher les doigts du cube
+fingertip_proximity_scale: 5.0
+# fingertip_contact : bonus quand bout de doigt touche le cube (signal binaire fort)
+fingertip_contact_scale: 2.0
+# self_collision : penalite quand les doigts se touchent entre eux
+self_collision_scale: 1.0
+
+# reward tactile FSR
+contact_bonus_scale: 1.0
+pressure_bonus_scale: 0.5
+palm_bonus_scale: 0.3
+low_pressure_scale: 0.5
+high_pressure_scale: 0.2
